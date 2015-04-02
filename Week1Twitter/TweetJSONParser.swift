@@ -30,13 +30,18 @@ class TweetJSONParser {
     return tweets
   }
   
-  class func tweetFromJSONData(data: NSData) -> Tweet? {
+  class func fullTweetFromJSONData(data: NSData) -> Tweet? {
     var error: NSError?
     if let jsonObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error:&error) as? [String: AnyObject] {
-      if let text = jsonObject["text"] as? String {
-        if let id = jsonObject["id"] as? Int {
-          if let user = jsonObject["user"] as? [String: AnyObject] {
-            if let userName = user["name"] as? String {
+      if let id = jsonObject["id"] as? Int {
+        if let user = jsonObject["user"] as? [String: AnyObject] {
+          if let userName = user["name"] as? String {
+            if let retweetedStatus = jsonObject["retweeted_status"] as? [String: AnyObject]{
+              if let text = retweetedStatus["text"] as? String {
+                return Tweet(userName: userName, text: text, id: id)
+              }
+            }
+            else if let text = jsonObject["text"] as? String {
               return Tweet(userName: userName, text: text, id: id)
             }
           }
@@ -45,4 +50,19 @@ class TweetJSONParser {
     }
     return nil
   }
+  
+//  private func parseTweet(data: [String:AnyObject]) -> Tweet? {
+//    var tweet: Tweet? = nil
+//    if let text = data["text"] as? String {
+//      if let id = data["id"] as? Int {
+//        if let user = data["user"] as? [String: AnyObject] {
+//          if let userName = user["name"] as? String {
+//            tweet = Tweet(userName: userName, text: text, id: id)
+//          }
+//        }
+//      }
+//    }
+//    return tweet
+//  }
+  
 }

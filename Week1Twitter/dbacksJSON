@@ -1,0 +1,366 @@
+[in_reply_to_user_id: <null>, possibly_sensitive_appealable: 0, favorite_count: 0, possibly_sensitive: 0, in_reply_to_status_id: <null>, in_reply_to_user_id_str: <null>, lang: en, favorited: 0, id: 583678056780304384, text: RT @ajohnagnello: Yeah I made this for an @Joystiq post later, but it's too dumb not to post twice. I wish I had MS Paint on my laptop. htt…, coordinates: <null>, geo: <null>, user: {
+    "contributors_enabled" = 0;
+    "created_at" = "Tue Feb 19 19:57:03 +0000 2008";
+    "default_profile" = 0;
+    "default_profile_image" = 0;
+    description = "Teamed up with Engadget to bring you the finest quality video game news,  streaming and more. (And this account isn't going anywhere. Stay with us.)";
+    entities =     {
+        description =         {
+            urls =             (
+            );
+        };
+        url =         {
+            urls =             (
+                                {
+                    "display_url" = "engadget.com/gaming";
+                    "expanded_url" = "http://www.engadget.com/gaming";
+                    indices =                     (
+                        0,
+                        22
+                    );
+                    url = "http://t.co/nJ5l1LRlJw";
+                }
+            );
+        };
+    };
+    "favourites_count" = 26;
+    "follow_request_sent" = 0;
+    "followers_count" = 342049;
+    following = 1;
+    "friends_count" = 462;
+    "geo_enabled" = 0;
+    id = 13687132;
+    "id_str" = 13687132;
+    "is_translation_enabled" = 1;
+    "is_translator" = 0;
+    lang = en;
+    "listed_count" = 6730;
+    location = Everywhere;
+    name = Joystiq;
+    notifications = 0;
+    "profile_background_color" = FFFFFF;
+    "profile_background_image_url" = "http://pbs.twimg.com/profile_background_images/433973515973189634/E-bO6UgG.jpeg";
+    "profile_background_image_url_https" = "https://pbs.twimg.com/profile_background_images/433973515973189634/E-bO6UgG.jpeg";
+    "profile_background_tile" = 0;
+    "profile_banner_url" = "https://pbs.twimg.com/profile_banners/13687132/1423028329";
+    "profile_image_url" = "http://pbs.twimg.com/profile_images/562846832607232000/WmOB3hAZ_normal.png";
+    "profile_image_url_https" = "https://pbs.twimg.com/profile_images/562846832607232000/WmOB3hAZ_normal.png";
+    "profile_link_color" = E6A44E;
+    "profile_location" = "<null>";
+    "profile_sidebar_border_color" = FFFFFF;
+    "profile_sidebar_fill_color" = DDFFCC;
+    "profile_text_color" = 333333;
+    "profile_use_background_image" = 0;
+    protected = 0;
+    "screen_name" = joystiq;
+    "statuses_count" = 19252;
+    "time_zone" = "Eastern Time (US & Canada)";
+    url = "http://t.co/nJ5l1LRlJw";
+    "utc_offset" = "-14400";
+    verified = 1;
+}, id_str: 583678056780304384, created_at: Thu Apr 02 17:11:07 +0000 2015, extended_entities: {
+    media =     (
+                {
+            "display_url" = "pic.twitter.com/nafaq1rO1D";
+            "expanded_url" = "http://twitter.com/ajohnagnello/status/583678030914068480/photo/1";
+            id = 583678016275918848;
+            "id_str" = 583678016275918848;
+            indices =             (
+                139,
+                140
+            );
+            "media_url" = "http://pbs.twimg.com/media/CBmkEDdUsAA7Sv2.jpg";
+            "media_url_https" = "https://pbs.twimg.com/media/CBmkEDdUsAA7Sv2.jpg";
+            sizes =             {
+                large =                 {
+                    h = 576;
+                    resize = fit;
+                    w = 1024;
+                };
+                medium =                 {
+                    h = 337;
+                    resize = fit;
+                    w = 600;
+                };
+                small =                 {
+                    h = 191;
+                    resize = fit;
+                    w = 340;
+                };
+                thumb =                 {
+                    h = 150;
+                    resize = crop;
+                    w = 150;
+                };
+            };
+            "source_status_id" = 583678030914068480;
+            "source_status_id_str" = 583678030914068480;
+            "source_user_id" = 63785369;
+            "source_user_id_str" = 63785369;
+            type = photo;
+            url = "http://t.co/nafaq1rO1D";
+        }
+    );
+}, in_reply_to_status_id_str: <null>, truncated: 0, retweet_count: 11, in_reply_to_screen_name: <null>, retweeted_status: {
+    contributors = "<null>";
+    coordinates = "<null>";
+    "created_at" = "Thu Apr 02 17:11:01 +0000 2015";
+    entities =     {
+        hashtags =         (
+        );
+        media =         (
+                        {
+                "display_url" = "pic.twitter.com/nafaq1rO1D";
+                "expanded_url" = "http://twitter.com/ajohnagnello/status/583678030914068480/photo/1";
+                id = 583678016275918848;
+                "id_str" = 583678016275918848;
+                indices =                 (
+                    118,
+                    140
+                );
+                "media_url" = "http://pbs.twimg.com/media/CBmkEDdUsAA7Sv2.jpg";
+                "media_url_https" = "https://pbs.twimg.com/media/CBmkEDdUsAA7Sv2.jpg";
+                sizes =                 {
+                    large =                     {
+                        h = 576;
+                        resize = fit;
+                        w = 1024;
+                    };
+                    medium =                     {
+                        h = 337;
+                        resize = fit;
+                        w = 600;
+                    };
+                    small =                     {
+                        h = 191;
+                        resize = fit;
+                        w = 340;
+                    };
+                    thumb =                     {
+                        h = 150;
+                        resize = crop;
+                        w = 150;
+                    };
+                };
+                type = photo;
+                url = "http://t.co/nafaq1rO1D";
+            }
+        );
+        symbols =         (
+        );
+        urls =         (
+        );
+        "user_mentions" =         (
+                        {
+                id = 13687132;
+                "id_str" = 13687132;
+                indices =                 (
+                    24,
+                    32
+                );
+                name = Joystiq;
+                "screen_name" = joystiq;
+            }
+        );
+    };
+    "extended_entities" =     {
+        media =         (
+                        {
+                "display_url" = "pic.twitter.com/nafaq1rO1D";
+                "expanded_url" = "http://twitter.com/ajohnagnello/status/583678030914068480/photo/1";
+                id = 583678016275918848;
+                "id_str" = 583678016275918848;
+                indices =                 (
+                    118,
+                    140
+                );
+                "media_url" = "http://pbs.twimg.com/media/CBmkEDdUsAA7Sv2.jpg";
+                "media_url_https" = "https://pbs.twimg.com/media/CBmkEDdUsAA7Sv2.jpg";
+                sizes =                 {
+                    large =                     {
+                        h = 576;
+                        resize = fit;
+                        w = 1024;
+                    };
+                    medium =                     {
+                        h = 337;
+                        resize = fit;
+                        w = 600;
+                    };
+                    small =                     {
+                        h = 191;
+                        resize = fit;
+                        w = 340;
+                    };
+                    thumb =                     {
+                        h = 150;
+                        resize = crop;
+                        w = 150;
+                    };
+                };
+                type = photo;
+                url = "http://t.co/nafaq1rO1D";
+            }
+        );
+    };
+    "favorite_count" = 7;
+    favorited = 0;
+    geo = "<null>";
+    id = 583678030914068480;
+    "id_str" = 583678030914068480;
+    "in_reply_to_screen_name" = "<null>";
+    "in_reply_to_status_id" = "<null>";
+    "in_reply_to_status_id_str" = "<null>";
+    "in_reply_to_user_id" = "<null>";
+    "in_reply_to_user_id_str" = "<null>";
+    lang = en;
+    place = "<null>";
+    "possibly_sensitive" = 0;
+    "possibly_sensitive_appealable" = 0;
+    "retweet_count" = 11;
+    retweeted = 0;
+    source = "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>";
+    text = "Yeah I made this for an @Joystiq post later, but it's too dumb not to post twice. I wish I had MS Paint on my laptop. http://t.co/nafaq1rO1D";
+    truncated = 0;
+    user =     {
+        "contributors_enabled" = 0;
+        "created_at" = "Fri Aug 07 17:49:40 +0000 2009";
+        "default_profile" = 0;
+        "default_profile_image" = 0;
+        description = "I am the Streams Producer and Associate Engagement Editor for http://t.co/S9g3k8jMxz and a writer working with the The AV Club, Edge, Fast Company, and others.";
+        entities =         {
+            description =             {
+                urls =                 (
+                                        {
+                        "display_url" = "Engadget.com";
+                        "expanded_url" = "http://Engadget.com";
+                        indices =                         (
+                            62,
+                            84
+                        );
+                        url = "http://t.co/S9g3k8jMxz";
+                    }
+                );
+            };
+            url =             {
+                urls =                 (
+                                        {
+                        "display_url" = "engadget.com";
+                        "expanded_url" = "http://www.engadget.com";
+                        indices =                         (
+                            0,
+                            22
+                        );
+                        url = "http://t.co/sPqsSwBKtx";
+                    }
+                );
+            };
+        };
+        "favourites_count" = 211;
+        "follow_request_sent" = 0;
+        "followers_count" = 1657;
+        following = 0;
+        "friends_count" = 411;
+        "geo_enabled" = 0;
+        id = 63785369;
+        "id_str" = 63785369;
+        "is_translation_enabled" = 0;
+        "is_translator" = 0;
+        lang = en;
+        "listed_count" = 55;
+        location = "New York City";
+        name = "Anthony John Agnello";
+        notifications = 0;
+        "profile_background_color" = F2F4F5;
+        "profile_background_image_url" = "http://pbs.twimg.com/profile_background_images/451764600896122881/dkY8Kwre.jpeg";
+        "profile_background_image_url_https" = "https://pbs.twimg.com/profile_background_images/451764600896122881/dkY8Kwre.jpeg";
+        "profile_background_tile" = 0;
+        "profile_banner_url" = "https://pbs.twimg.com/profile_banners/63785369/1396544095";
+        "profile_image_url" = "http://pbs.twimg.com/profile_images/458993787658706946/PUh1fmIc_normal.jpeg";
+        "profile_image_url_https" = "https://pbs.twimg.com/profile_images/458993787658706946/PUh1fmIc_normal.jpeg";
+        "profile_link_color" = ED0909;
+        "profile_location" = "<null>";
+        "profile_sidebar_border_color" = FFFFFF;
+        "profile_sidebar_fill_color" = 8DCDEB;
+        "profile_text_color" = 050505;
+        "profile_use_background_image" = 1;
+        protected = 0;
+        "screen_name" = ajohnagnello;
+        "statuses_count" = 2740;
+        "time_zone" = "Eastern Time (US & Canada)";
+        url = "http://t.co/sPqsSwBKtx";
+        "utc_offset" = "-14400";
+        verified = 1;
+    };
+}, source: <a href="https://about.twitter.com/products/tweetdeck" rel="nofollow">TweetDeck</a>, retweeted: 0, place: <null>, entities: {
+    hashtags =     (
+    );
+    media =     (
+                {
+            "display_url" = "pic.twitter.com/nafaq1rO1D";
+            "expanded_url" = "http://twitter.com/ajohnagnello/status/583678030914068480/photo/1";
+            id = 583678016275918848;
+            "id_str" = 583678016275918848;
+            indices =             (
+                139,
+                140
+            );
+            "media_url" = "http://pbs.twimg.com/media/CBmkEDdUsAA7Sv2.jpg";
+            "media_url_https" = "https://pbs.twimg.com/media/CBmkEDdUsAA7Sv2.jpg";
+            sizes =             {
+                large =                 {
+                    h = 576;
+                    resize = fit;
+                    w = 1024;
+                };
+                medium =                 {
+                    h = 337;
+                    resize = fit;
+                    w = 600;
+                };
+                small =                 {
+                    h = 191;
+                    resize = fit;
+                    w = 340;
+                };
+                thumb =                 {
+                    h = 150;
+                    resize = crop;
+                    w = 150;
+                };
+            };
+            "source_status_id" = 583678030914068480;
+            "source_status_id_str" = 583678030914068480;
+            "source_user_id" = 63785369;
+            "source_user_id_str" = 63785369;
+            type = photo;
+            url = "http://t.co/nafaq1rO1D";
+        }
+    );
+    symbols =     (
+    );
+    urls =     (
+    );
+    "user_mentions" =     (
+                {
+            id = 63785369;
+            "id_str" = 63785369;
+            indices =             (
+                3,
+                16
+            );
+            name = "Anthony John Agnello";
+            "screen_name" = ajohnagnello;
+        },
+                {
+            id = 13687132;
+            "id_str" = 13687132;
+            indices =             (
+                42,
+                50
+            );
+            name = Joystiq;
+            "screen_name" = joystiq;
+        }
+    );
+}, contributors: <null>]

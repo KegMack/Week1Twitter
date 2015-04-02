@@ -58,7 +58,7 @@ class TwitterService {
       } else {
         switch response.statusCode {
         case 200...299:
-          tweet = TweetJSONParser.tweetFromJSONData(data)
+          tweet = TweetJSONParser.fullTweetFromJSONData(data)
         case 400...499:
           errorDescription = "URL Not found."
         case 500...599:

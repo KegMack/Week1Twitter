@@ -20,6 +20,7 @@
 		CE4FA0491ACB850D00E72E2E /* TwitterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4FA0481ACB850D00E72E2E /* TwitterService.swift */; };
 		CE4FA04B1ACCD48000E72E2E /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4FA04A1ACCD48000E72E2E /* TweetTableViewCell.swift */; };
 		CE4FA04E1ACCEC3D00E72E2E /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4FA04D1ACCEC3D00E72E2E /* TweetDetailViewController.swift */; };
+		CE4FA0501ACDB9CB00E72E2E /* dbacksJSON in Resources */ = {isa = PBXBuildFile; fileRef = CE4FA04F1ACDB9CB00E72E2E /* dbacksJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		CE4FA0481ACB850D00E72E2E /* TwitterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterService.swift; sourceTree = "<group>"; };
 		CE4FA04A1ACCD48000E72E2E /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		CE4FA04D1ACCEC3D00E72E2E /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
+		CE4FA04F1ACDB9CB00E72E2E /* dbacksJSON */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dbacksJSON; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				CE3FD27E1ACA483C006BE622 /* tweet.json */,
+				CE4FA04F1ACDB9CB00E72E2E /* dbacksJSON */,
 				CE3FD25D1AC9E49C006BE622 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -240,6 +243,7 @@
 				CE3FD2641AC9E49C006BE622 /* Main.storyboard in Resources */,
 				CE3FD2691AC9E49C006BE622 /* LaunchScreen.xib in Resources */,
 				CE3FD2661AC9E49C006BE622 /* Images.xcassets in Resources */,
+				CE4FA0501ACDB9CB00E72E2E /* dbacksJSON in Resources */,
 				CE3FD27F1ACA483C006BE622 /* tweet.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

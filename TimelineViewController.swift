@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimelineViewController: UITableViewController {
+class TimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
   struct Constants {
     static let tweetCellIdentifier = "tweetCell"
@@ -17,12 +17,12 @@ class TimelineViewController: UITableViewController {
   var tweets: [Tweet]?
   let twitterService = TwitterService()
   
+  @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.navigationItem.title = "Home Timeline"
-    self.activityIndicator.center = self.tableView.center
     self.activityIndicator.startAnimating()
     self.tableView.rowHeight = UITableViewAutomaticDimension
     
@@ -56,18 +56,18 @@ class TimelineViewController: UITableViewController {
   
     // MARK: - Table view data source
 
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
   }
 
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let tweets = self.tweets {
       return tweets.count
     }
     return 0
   }
 
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(Constants.tweetCellIdentifier, forIndexPath: indexPath) as TweetTableViewCell
     cell.userNameLabel.text = nil
     cell.tweetLabel.text = nil
@@ -80,7 +80,7 @@ class TimelineViewController: UITableViewController {
   
     // MARK: - Table view delegate
   
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     performSegueWithIdentifier("detailSegue", sender: indexPath.row)
   }
   
