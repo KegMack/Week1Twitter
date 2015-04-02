@@ -12,9 +12,11 @@ class Tweet {
   
   var text: String?
   var userName: String?
+  var id: Int?
   
-  init(userName: String, text: String) {
+  init(userName: String, text: String, id: Int) {
     self.text = text
     self.userName = userName
+    self.id = id
   }
 }

@@ -17,8 +17,15 @@ class TimelineViewController: UITableViewController {
   var tweets: [Tweet]?
   let twitterService = TwitterService()
   
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.navigationItem.title = "Home Timeline"
+    self.activityIndicator.center = self.tableView.center
+    self.activityIndicator.startAnimating()
+    self.tableView.rowHeight = UITableViewAutomaticDimension
+    
     TwitterLogin.requestAccount { (account, errorDescription) -> Void in
       if account != nil {
         self.twitterService.account = account
@@ -29,6 +36,7 @@ class TimelineViewController: UITableViewController {
           if tweets != nil {
             self.tweets = tweets
             self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
           }
         })
       }
@@ -39,7 +47,13 @@ class TimelineViewController: UITableViewController {
 //      }
 //    }
   }
-
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.tableView.reloadData()
+  }
+  
+  
     // MARK: - Table view data source
 
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -54,13 +68,36 @@ class TimelineViewController: UITableViewController {
   }
 
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(Constants.tweetCellIdentifier, forIndexPath: indexPath) as UITableViewCell
-    cell.textLabel?.text = nil
-    cell.detailTextLabel?.text = nil
+    let cell = tableView.dequeueReusableCellWithIdentifier(Constants.tweetCellIdentifier, forIndexPath: indexPath) as TweetTableViewCell
+    cell.userNameLabel.text = nil
+    cell.tweetLabel.text = nil
     if let tweet = self.tweets?[indexPath.row] {
-      cell.textLabel?.text = tweet.text
-      cell.detailTextLabel?.text = tweet.userName
+      cell.userNameLabel.text = tweet.userName
+      cell.tweetLabel.text = tweet.text
     }
     return cell
   }
+  
+    // MARK: - Table view delegate
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    performSegueWithIdentifier("detailSegue", sender: indexPath.row)
+  }
+  
+    // MARK: - Segue
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "detailSegue" {
+      if let index = sender as? Int {
+        if let destinationVC = segue.destinationViewController as? TweetDetailViewController {
+          destinationVC.tweet = self.tweets![index]
+        }
+      }
+    }
+  }
+  
+  
+  
+  
 }
+
