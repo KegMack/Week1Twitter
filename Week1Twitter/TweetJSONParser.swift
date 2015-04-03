@@ -22,10 +22,16 @@ class TweetJSONParser {
               if let favorited = object["favorite_count"] as? Int {
                 if let user = object["user"] as? [String: AnyObject] {
                   if let userName = user["name"] as? String {
-                    if let screenName = user["screen_name"] as? String {
-                      if let imageUrl = user["profile_image_url"] as? String {
-                        if let bgImageUrl = user["profile_background_image_url"] as? String {
-                          tweets.append(Tweet(userName: userName, screenName: screenName, text: text, id: id, retweets: retweets, favorited: favorited, imageUrl: imageUrl, bgImageUrl: bgImageUrl) )
+                    if let userFavorites = user["favourites_count"] as? Int {
+                      if let tweetsCount = user["statuses_count"] as? Int {
+                        if let screenName = user["screen_name"] as? String {
+                          if let imageUrl = user["profile_image_url"] as? String {
+                            if let userLocation = user["location"] as? String {
+                              if let bgImageUrl = user["profile_background_image_url"] as? String {
+                                tweets.append(Tweet(userName: userName, screenName: screenName, userLocation: userLocation, userFavorites: userFavorites, userTweets: tweetsCount, text: text, id: id, retweets: retweets, favorited: favorited, imageUrl: imageUrl, bgImageUrl: bgImageUrl) )
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -47,17 +53,23 @@ class TweetJSONParser {
         if let user = jsonObject["user"] as? [String: AnyObject] {
           if let userName = user["name"] as? String {
             if let screenName = user["screen_name"] as? String {
-              if let imageUrl = user["profile_image_url"] as? String {
-                if let bgImageUrl = user["profile_background_image_url"] as? String {
-                  if let retweets = jsonObject["retweet_count"] as? Int {
-                    if let favorited = jsonObject["favorite_count"] as? Int {
-                      if let retweetedStatus = jsonObject["retweeted_status"] as? [String: AnyObject]{
-                        if let text = retweetedStatus["text"] as? String {
-                          return Tweet(userName: userName, screenName: screenName, text: text, id: id, retweets: retweets, favorited: favorited, imageUrl: imageUrl, bgImageUrl: bgImageUrl)
+              if let userLocation = user["location"] as? String {
+                if let imageUrl = user["profile_image_url"] as? String {
+                  if let bgImageUrl = user["profile_background_image_url"] as? String {
+                    if let retweets = jsonObject["retweet_count"] as? Int {
+                      if let favorited = jsonObject["favorite_count"] as? Int {
+                        if let userFavorites = user["favourites_count"] as? Int {
+                          if let tweetsCount = user["statuses_count"] as? Int {
+                            if let retweetedStatus = jsonObject["retweeted_status"] as? [String: AnyObject]{
+                              if let text = retweetedStatus["text"] as? String {
+                                return Tweet(userName: userName, screenName: screenName, userLocation: userLocation, userFavorites: userFavorites, userTweets: tweetsCount, text: text, id: id, retweets: retweets, favorited: favorited, imageUrl: imageUrl, bgImageUrl: bgImageUrl)
+                              }
+                            }
+                            else if let text = jsonObject["text"] as? String {
+                              return Tweet(userName: userName, screenName: screenName, userLocation: userLocation, userFavorites: userFavorites, userTweets: tweetsCount, text: text, id: id, retweets: retweets, favorited: favorited, imageUrl: imageUrl, bgImageUrl: bgImageUrl)
+                            }
+                          }
                         }
-                      }
-                      else if let text = jsonObject["text"] as? String {
-                        return Tweet(userName: userName, screenName: screenName, text: text, id: id, retweets: retweets, favorited: favorited, imageUrl: imageUrl, bgImageUrl: bgImageUrl)
                       }
                     }
                   }

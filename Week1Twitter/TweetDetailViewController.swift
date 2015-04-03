@@ -17,6 +17,8 @@ class TweetDetailViewController: UIViewController {
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   @IBOutlet weak var backgroundImage: UIImageView!
   @IBOutlet weak var profileImageButton: UIButton!
+  @IBOutlet weak var favoritesLabel: UILabel!
+  @IBOutlet weak var retweetLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,6 +41,8 @@ class TweetDetailViewController: UIViewController {
             }
             else if tweet != nil {
               self.tweetLabel.text = tweet!.text
+              self.retweetLabel.text = "\(tweet!.retweets)"
+              self.favoritesLabel.text = "\(tweet!.favorited)"
             }
           })
         }

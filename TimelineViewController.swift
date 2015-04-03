@@ -32,7 +32,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
     self.tableView.estimatedRowHeight = 5
     self.tableView.rowHeight = UITableViewAutomaticDimension
     initializeTweetData()
-    initializeTitle()
+  //  initializeTitle()
   }
   
   func initializeTweetData() {
@@ -46,6 +46,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
           if tweets != nil {
             self.tweets = tweets
             self.tableView.reloadData()
+            self.initializeHeader()
             self.activityIndicator.stopAnimating()
           }
         })
@@ -61,6 +62,40 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
     }
   }
   
+  func initializeHeader() {
+    if self.screenName != nil {
+      if let tweets = self.tweets {
+        let tweet = tweets.first
+        let headerView = NSBundle.mainBundle().loadNibNamed("TwitterUserHeaderView", owner: self, options: nil)[0] as? TweetTableHeaderView
+        headerView?.locationLabel.text = tweet!.userLocation
+        headerView?.locationLabel.sizeToFit() 
+        headerView?.retweetsLabel.text = "\(tweet!.userTweets)"
+        headerView?.favoritedLabel.text = "\(tweet!.userFavorites)"
+        if let profileImage = tweet?.image {
+          headerView?.profileImageView.image = profileImage
+        } else {
+          self.imageService.fetchProfileImage(tweet!.imageUrl, completionHandler: { [weak self] (image) -> () in
+            if self != nil {
+              headerView?.profileImageView.image = image
+            }
+          })
+        }
+        if let bgImage = tweet!.backgroundImage {
+            headerView?.backgroundImageView.image = bgImage
+        } else {
+          self.imageService.fetchProfileImage(tweet!.backgroundImageURL, completionHandler: { [weak self] (image) -> () in
+            if self != nil {
+              headerView?.backgroundImageView.image = image
+            }
+          })
+        }
+        self.tableView.tableHeaderView = headerView
+        self.navigationItem.title = tweet?.userName
+      }
+    } else {
+      self.navigationItem.title = "Home"
+    }
+  }
   
     // MARK: - Table view data source
 
