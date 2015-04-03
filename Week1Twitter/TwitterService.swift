@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Craig_Chaillie. All rights reserved.
 //
 
-import Foundation
 import Accounts
 import Social
 
@@ -14,12 +13,25 @@ class TwitterService {
   
   var account: ACAccount?
   let homeTimelineURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-  
+  let timeLineURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="
   init(){}
   
-  func fetchHomeTimeline(completionHandler:([Tweet]?, String?) -> Void) {
-    let requestURL = NSURL(string: homeTimelineURL)
-    let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: requestURL, parameters: nil)
+  class var sharedService : TwitterService {
+    struct Static {
+      static let instance : TwitterService = TwitterService()
+    }
+    return Static.instance
+  }
+  
+  func fetchTimeline(userName: String?, completionHandler:([Tweet]?, String?) -> Void) {
+    var requestURL: NSURL?
+    if userName == nil {
+      requestURL = NSURL(string: homeTimelineURL)
+    } else {
+      let urlPath = self.timeLineURL + userName!
+      requestURL = NSURL(string: urlPath)
+    }
+    let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: requestURL!, parameters: nil)
     request.account = account
     
     request.performRequestWithHandler { (data, response, error) -> Void in

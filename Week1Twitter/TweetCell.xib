@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="113" id="DcI-XP-4CH" customClass="TweetTableViewCell" customModule="Week1Twitter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DcI-XP-4CH" id="vy6-KB-dbp">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpt-af-gUt">
+                        <rect key="frame" x="66" y="8" width="246" height="38"/>
+                        <color key="backgroundColor" red="0.18097656100000001" green="0.019843846089999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="247" verticalHuggingPriority="260" text="..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rc9-pC-mYw">
+                        <rect key="frame" x="66" y="54" width="246" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="253" text="J" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UJ-hL-8By">
+                        <rect key="frame" x="95" y="83" width="9" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YiG-2c-6gm">
+                        <rect key="frame" x="8" y="8" width="50" height="50"/>
+                        <color key="backgroundColor" red="1" green="0.63629204920000004" blue="0.012922946120000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="NjP-bM-Qrh"/>
+                            <constraint firstAttribute="height" constant="50" id="QbK-aC-1xS"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RetweetIcon" translatesAutoresizingMaskIntoConstraints="NO" id="STL-C1-F4t">
+                        <rect key="frame" x="66" y="83" width="21" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="23" id="SZ1-dm-DL3"/>
+                            <constraint firstAttribute="width" constant="21" id="U6P-cj-Tad"/>
+                            <constraint firstAttribute="height" constant="21" id="nKc-No-3L9"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SZ1-dm-DL3"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="253" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4A-zb-P4X">
+                        <rect key="frame" x="302" y="83" width="10" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FavoriteIcon" translatesAutoresizingMaskIntoConstraints="NO" id="rNd-nJ-sh7">
+                        <rect key="frame" x="273" y="83" width="21" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Z07-oo-JSs"/>
+                            <constraint firstAttribute="width" constant="21" id="hB0-A7-0jr"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8UJ-hL-8By" firstAttribute="leading" secondItem="STL-C1-F4t" secondAttribute="trailing" constant="8" id="0do-cl-k3B"/>
+                    <constraint firstItem="YiG-2c-6gm" firstAttribute="top" secondItem="vy6-KB-dbp" secondAttribute="topMargin" id="26v-oE-3mk"/>
+                    <constraint firstItem="8UJ-hL-8By" firstAttribute="bottom" secondItem="STL-C1-F4t" secondAttribute="bottom" id="7Yu-b0-LLS"/>
+                    <constraint firstItem="YiG-2c-6gm" firstAttribute="leading" secondItem="vy6-KB-dbp" secondAttribute="leadingMargin" id="9nm-lo-WPh"/>
+                    <constraint firstItem="8UJ-hL-8By" firstAttribute="top" secondItem="Rc9-pC-mYw" secondAttribute="bottom" constant="8" symbolic="YES" id="B6b-VK-sCL"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="u4A-zb-P4X" secondAttribute="bottom" id="BsO-Un-Mgu"/>
+                    <constraint firstItem="YiG-2c-6gm" firstAttribute="top" secondItem="Wpt-af-gUt" secondAttribute="top" id="Df3-tM-gYc"/>
+                    <constraint firstItem="Rc9-pC-mYw" firstAttribute="top" secondItem="Wpt-af-gUt" secondAttribute="bottom" constant="8" symbolic="YES" id="FAp-w0-ebG"/>
+                    <constraint firstItem="Rc9-pC-mYw" firstAttribute="trailing" secondItem="vy6-KB-dbp" secondAttribute="trailingMargin" id="Fif-GN-LwR"/>
+                    <constraint firstItem="Rc9-pC-mYw" firstAttribute="leading" secondItem="Wpt-af-gUt" secondAttribute="leading" id="MRa-1E-Qpi"/>
+                    <constraint firstItem="u4A-zb-P4X" firstAttribute="trailing" secondItem="vy6-KB-dbp" secondAttribute="trailingMargin" id="MVr-Wo-2kw"/>
+                    <constraint firstItem="Wpt-af-gUt" firstAttribute="trailing" secondItem="vy6-KB-dbp" secondAttribute="trailingMargin" id="McB-f2-ZEB"/>
+                    <constraint firstItem="STL-C1-F4t" firstAttribute="top" secondItem="Rc9-pC-mYw" secondAttribute="bottom" constant="8" symbolic="YES" id="Njb-WQ-e1c"/>
+                    <constraint firstItem="8UJ-hL-8By" firstAttribute="baseline" secondItem="u4A-zb-P4X" secondAttribute="baseline" id="PZW-0G-1qb"/>
+                    <constraint firstItem="rNd-nJ-sh7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8UJ-hL-8By" secondAttribute="trailing" constant="8" symbolic="YES" id="TAU-td-XRT"/>
+                    <constraint firstItem="u4A-zb-P4X" firstAttribute="leading" secondItem="rNd-nJ-sh7" secondAttribute="trailing" constant="8" symbolic="YES" id="Vul-l8-gmN"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Rc9-pC-mYw" secondAttribute="bottom" id="Zra-iY-qxV"/>
+                    <constraint firstItem="Wpt-af-gUt" firstAttribute="leading" secondItem="YiG-2c-6gm" secondAttribute="trailing" constant="8" symbolic="YES" id="gF7-0B-an2"/>
+                    <constraint firstItem="STL-C1-F4t" firstAttribute="leading" secondItem="Rc9-pC-mYw" secondAttribute="leading" id="jU6-jt-OMN"/>
+                    <constraint firstItem="rNd-nJ-sh7" firstAttribute="bottom" secondItem="vy6-KB-dbp" secondAttribute="bottomMargin" id="kUh-Jn-kU2"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="8UJ-hL-8By" secondAttribute="bottom" id="oMB-d2-pGO"/>
+                    <constraint firstItem="u4A-zb-P4X" firstAttribute="leading" secondItem="Rc9-pC-mYw" secondAttribute="trailing" constant="-10" id="pIA-FE-D7v"/>
+                    <constraint firstItem="u4A-zb-P4X" firstAttribute="top" secondItem="Rc9-pC-mYw" secondAttribute="bottom" constant="8" symbolic="YES" id="u8p-jr-jeR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="STL-C1-F4t" secondAttribute="bottom" id="v6V-cJ-f7R"/>
+                    <constraint firstItem="8UJ-hL-8By" firstAttribute="leading" secondItem="Rc9-pC-mYw" secondAttribute="leading" id="vYf-Db-h13"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Zra-iY-qxV"/>
+                        <exclude reference="7Yu-b0-LLS"/>
+                        <exclude reference="PZW-0G-1qb"/>
+                        <exclude reference="vYf-Db-h13"/>
+                        <exclude reference="pIA-FE-D7v"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="favoritedLabel" destination="u4A-zb-P4X" id="hmm-gf-2vX"/>
+                <outlet property="profileImageButton" destination="YiG-2c-6gm" id="YVT-aI-Rxi"/>
+                <outlet property="retweetedLabel" destination="8UJ-hL-8By" id="3ho-kc-4bc"/>
+                <outlet property="tweetLabel" destination="Rc9-pC-mYw" id="eqM-dW-fct"/>
+                <outlet property="userNameLabel" destination="Wpt-af-gUt" id="cjq-tX-2FN"/>
+            </connections>
+            <point key="canvasLocation" x="97" y="220.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="FavoriteIcon" width="20" height="20"/>
+        <image name="RetweetIcon" width="20" height="20"/>
+    </resources>
+</document>

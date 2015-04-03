@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Craig_Chaillie. All rights reserved.
 //
 
-import Foundation
 import Accounts
 
 class TwitterLogin {

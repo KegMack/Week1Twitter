@@ -14,22 +14,32 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
     static let tweetCellIdentifier = "tweetCell"
   }
   
+  var screenName: String?
   var tweets: [Tweet]?
-  let twitterService = TwitterService()
+  let imageService = ProfileImageService()
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
+  
+  // MARK: - Initialization
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.navigationItem.title = "Home Timeline"
     self.activityIndicator.startAnimating()
+    let nib = UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle())
+    self.tableView.registerNib(nib, forCellReuseIdentifier: Constants.tweetCellIdentifier)
+    self.tableView.estimatedRowHeight = 5
     self.tableView.rowHeight = UITableViewAutomaticDimension
-    
+    initializeTweetData()
+    initializeTitle()
+  }
+  
+  func initializeTweetData() {
     TwitterLogin.requestAccount { (account, errorDescription) -> Void in
       if account != nil {
-        self.twitterService.account = account
-        self.twitterService.fetchHomeTimeline({ (tweets, errorDescription) -> Void in
+        TwitterService.sharedService.account = account
+        TwitterService.sharedService.fetchTimeline(self.screenName, { (tweets, errorDescription) -> Void in
           if errorDescription != nil {
             println(errorDescription)
           }
@@ -41,16 +51,14 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         })
       }
     }
-//    if let filePath = NSBundle.mainBundle().pathForResource("tweet", ofType: "json") {
-//      if let data = NSData(contentsOfFile: filePath) {
-//        self.tweets = TweetJSONParser.tweetsFromJSONData(data)
-//      }
-//    }
   }
   
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    self.tableView.reloadData()
+  func initializeTitle() {
+    if self.screenName != nil {
+      self.navigationItem.title = self.screenName
+    } else {
+      self.navigationItem.title = "Home"
+    }
   }
   
   
@@ -68,36 +76,48 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
     let cell = tableView.dequeueReusableCellWithIdentifier(Constants.tweetCellIdentifier, forIndexPath: indexPath) as TweetTableViewCell
+    cell.tag++
+    let tag = cell.tag
     cell.userNameLabel.text = nil
     cell.tweetLabel.text = nil
+    cell.retweetedLabel.text = "0"
+    cell.favoritedLabel.text = "0"
+    
     if let tweet = self.tweets?[indexPath.row] {
       cell.userNameLabel.text = tweet.userName
       cell.tweetLabel.text = tweet.text
+      cell.retweetedLabel.text = "\(tweet.retweets)"
+      cell.favoritedLabel.text = "\(tweet.favorited)"
+      if let image = tweet.image {
+        cell.profileImageButton.setBackgroundImage(image, forState: UIControlState.Normal)
+      } else {
+        self.imageService.fetchProfileImage(tweet.imageUrl, completionHandler: { [weak self] (image) -> () in
+          if self != nil {
+            tweet.image = image
+          }
+          if tag == cell.tag {
+            cell.profileImageButton.setBackgroundImage(image, forState: UIControlState.Normal)
+          }
+        })
+      }
     }
+    cell.layoutIfNeeded()
     return cell
   }
+  
   
     // MARK: - Table view delegate
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("detailSegue", sender: indexPath.row)
+    let detailViewController = self.storyboard!.instantiateViewControllerWithIdentifier("TweetDetailViewController") as TweetDetailViewController
+    let tweet = self.tweets![indexPath.row]
+    detailViewController.tweet = tweet
+    self.navigationController?.pushViewController(detailViewController, animated: true)
   }
   
-    // MARK: - Segue
-  
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "detailSegue" {
-      if let index = sender as? Int {
-        if let destinationVC = segue.destinationViewController as? TweetDetailViewController {
-          destinationVC.tweet = self.tweets![index]
-        }
-      }
-    }
-  }
-  
-  
-  
+
   
 }
 

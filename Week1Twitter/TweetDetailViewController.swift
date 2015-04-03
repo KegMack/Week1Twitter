@@ -11,19 +11,28 @@ import UIKit
 class TweetDetailViewController: UIViewController {
   
   var tweet: Tweet?
-  let twitterService = TwitterService()
-
+  var imageService = ProfileImageService()
+  
   @IBOutlet weak var tweetLabel: UILabel!
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+  @IBOutlet weak var backgroundImage: UIImageView!
+  @IBOutlet weak var profileImageButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.activityIndicator.startAnimating()
-    if let id = self.tweet?.id? {
+    if self.tweet != nil {
+      self.navigationItem.title = self.tweet!.userName
+      displayTweet()
+      displayImages()
+    }
+  }
+  
+  func displayTweet() {
+    if let id = self.tweet?.id {
       TwitterLogin.requestAccount { (account, errorDescription) -> Void in
         if account != nil {
-          self.twitterService.account = account
-          self.twitterService.fetchFullTweetWithID(id, completionHandler: { (tweet, errorDescription) -> Void in
+          TwitterService.sharedService.fetchFullTweetWithID(id, completionHandler: { (tweet, errorDescription) -> Void in
             self.activityIndicator.stopAnimating()
             if errorDescription != nil {
               self.tweetLabel.text = "Error: \(errorDescription)"
@@ -36,7 +45,33 @@ class TweetDetailViewController: UIViewController {
       }
     }
   }
-
   
+  func displayImages() {
+    if let profileImage = self.tweet?.image {
+      self.profileImageButton.setBackgroundImage(profileImage, forState: UIControlState.Normal)
+    } else {
+      self.imageService.fetchProfileImage(self.tweet!.imageUrl, completionHandler: { [weak self] (image) -> () in
+        if self != nil {
+          self?.profileImageButton.setBackgroundImage(image, forState: UIControlState.Normal)        }
+      })
+    }
+    if let bgImage = self.tweet?.backgroundImage {
+      self.backgroundImage.image = bgImage
+    } else {
+      self.imageService.fetchProfileImage(self.tweet!.backgroundImageURL, completionHandler: { [weak self] (image) -> () in
+        if self != nil {
+          self?.backgroundImage.image = image
+        }
+      })
+    }
+  }
+  
+  @IBAction func profileImagePressed(sender: UIButton) {
+    if self.tweet != nil {
+      let timelineViewController = self.storyboard!.instantiateViewControllerWithIdentifier("TimelineViewController") as TimelineViewController
+      timelineViewController.screenName = self.tweet!.screenName
+      self.navigationController?.pushViewController(timelineViewController, animated: true)
+    }
+  }
   
 }
